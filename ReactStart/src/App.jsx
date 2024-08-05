@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Chai from "./Chai"
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+function Myapp() {
+
+  const evaluatedExpression = " jsx ke andr jb javvascript inject ji jai to wo evaluated expression khlata h , because waha sirf javascript evaluate hoti h.  declare nhi hoti"
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>custom App {Chai()} {evaluatedExpression}</h1>
     </>
+  )
+}
+
+// const ReactElement = {
+//   type: "a",
+//   props : {
+//       href: "https://reactjs.org",
+//       target : "_blank",
+//   },
+//   children : "Click me to visit react documentaion"
+// }
+
+// const anotherReactElement = (
+
+//   <a href="https://reactjs.org" target="_blank"> click me</a>
+// )
+
+
+function App() {
+  return (
+  <Myapp/>
   )
 }
 
