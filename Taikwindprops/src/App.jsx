@@ -5,7 +5,8 @@ function App() {
 
   return (
     <>
-      <h1>Hello</h1>
+    
+      <h1 className='font-bold capitalize'>"Background color changer"</h1>
     </>
   )
 }
