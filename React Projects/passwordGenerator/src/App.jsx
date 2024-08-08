@@ -6,6 +6,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
+  const [buttonBgColor, setButtonBgColor] = useState("bg-blue-700")
 
   const passReference = useRef(null)
 
@@ -34,8 +35,13 @@ function App() {
     passReference.current.select()
     passReference.current.setSelectionRange(0, 99999)
     window.navigator.clipboard.writeText(password)
-    // document.execCommand("copy")
-  }
+    
+    setButtonBgColor("bg-blue-500")
+    setTimeout(() => {
+      setButtonBgColor("bg-blue-700")
+    }, 100);
+    }
+
 
   useEffect(() => {
     passwordGenerator()
@@ -53,7 +59,7 @@ function App() {
         />
         <button
         onClick={copyPasswordToClipboard}
-        className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
+        className={`outline-none ${buttonBgColor} text-white px-3 py-0.5 shrink-0`}
         >Copy</button>
       </div>
       <div className='flex text-sm gap-x-2'>
@@ -99,3 +105,4 @@ function App() {
 }
 
 export default App
+
