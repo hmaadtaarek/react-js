@@ -3,13 +3,13 @@ import { createContext , useContext } from "react";
 export const TodoContext = createContext({
     todos:[
         {
-            id:1,
+            id: 1,
             text:"Learn React",
             completed:false
         }
     ],
     addTodo : (todo) => {},
-    updateTodo: (todo, id) => { },
+    updateTodo: (id, todo) => { },
     deleteTodo: (id) => { },
     toggleComplete: (id) => { },
 })
