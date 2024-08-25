@@ -1,4 +1,6 @@
-import { useState } from 'react'
+
+import AddTodo from './components/AddTodo'
+import SimpleTodo from './components/SimpleTodo'
 
 
 function App() {
@@ -6,7 +8,8 @@ function App() {
 
   return (
     <>
-      
+      <AddTodo />
+      <SimpleTodo />
     </>
   )
 }
