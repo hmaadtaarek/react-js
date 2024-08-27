@@ -1,15 +1,20 @@
-import { createSlice , nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    todoslist:[]
+    todoslist: [ {
+        id: 1,
+        text: "testing",
+        completed: false,
+        editable: false
+}]
 }
 
 export const todoSlice = createSlice({
     name: "todo",
     initialState,
     reducers: {
-        addTodo: (state, action)=>{
+        addTodo: (state, action) => {
             const todo = {
                 id: nanoid(),
                 text: action.payload,
@@ -19,24 +24,24 @@ export const todoSlice = createSlice({
             state.todoslist.push(todo)
         },
 
-        updateTodo: (state, action)=>{
+        updateTodo: (state, action) => {
             state.todoslist = state.todoslist.map((todo) => todo.id === action.payload.id ? action.payload : todo)
         },
 
-        deleteTodo: (state , action)=>{
+        deleteTodo: (state, action) => {
             state.todoslist = state.todoslist.filter((todo) => todo.id !== action.payload.id)
         },
 
-        toggleComplete:(state, action) => {
-            state.todoslist = state.todoslist.map((todo) => todo.id === action.payload.id ? {...todo , completed: !todo.completed} : todo)
+        toggleComplete: (state, action) => {
+            state.todoslist = state.todoslist.map((todo) => todo.id === action.payload.id ? { ...todo, completed: !todo.completed } : todo)
         },
 
         toggleEditable: (state, action) => {
-            state.todoslist = state.todoslist.map((todo) => todo.id === action.payload.id ? {...todo, editable: !todo.editable} : todo)
+            state.todoslist = state.todoslist.map((todo) => todo.id === action.payload.id ? { ...todo, editable: !todo.editable } : todo)
         }
     }
 })
 
-export const {addTodo, updateTodo, deleteTodo, toggleComplete, toggleEditable}  = todoSlice.actions
+export const { addTodo, updateTodo, deleteTodo, toggleComplete, toggleEditable } = todoSlice.actions
 
 export default todoSlice.reducer
