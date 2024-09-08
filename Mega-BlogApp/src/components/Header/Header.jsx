@@ -7,7 +7,7 @@ import { Container, Logo, LogoutBtn } from "../index"
 function Header() {
 
     const navigate = useNavigate()
-    const authStatus = useSelector((state) => state.auth.status)
+    const authStatus = useSelector((state) => state.auth?.status);
 
     const navItems = [
         {
@@ -31,8 +31,8 @@ function Header() {
             active: authStatus
         },
         {
-            name: "Add Posts",
-            slug: "/add-posts",
+            name: "Add Post",
+            slug: "/add-post",
             active: authStatus
         },
     ]

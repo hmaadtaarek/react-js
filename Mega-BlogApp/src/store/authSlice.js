@@ -3,7 +3,7 @@ const initialState = {
     status: false,
     userData: null
 }
-export const authSlice = createSlice({
+const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers : {

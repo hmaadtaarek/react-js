@@ -14,7 +14,7 @@ export class Service {
         this.bucket = new Storage(this.client)
     }
 
-    async createPost({ title, content, slug, featuredImage, status, userId }) {
+    async createPost({ title, slug, content, featuredImage, status, userId }) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -57,7 +57,7 @@ export class Service {
 
     async deletePost(slug) {
         try {
-            return await this.databases.deleteDocument(
+            await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug
@@ -114,7 +114,7 @@ export class Service {
 
     async deleteFile(fileId) {
         try {
-            return await this.bucket.deleteFile(
+            await this.bucket.deleteFile(
                 conf.appwriteBucketId,
                 fileId
             )
